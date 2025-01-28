@@ -1,7 +1,7 @@
 package com.example.Coursework2.Models;
 
 public class Question {
-    String question ;
+    String question;
     String answer;
 
     public Question(String question, String answer) {
