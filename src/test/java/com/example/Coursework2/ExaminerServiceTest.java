@@ -12,9 +12,10 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.mockito.Mockito.when;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -24,7 +25,6 @@ public class ExaminerServiceTest {
     private QuestionService questionService;
     @Mock
     private JavaQuestionService javaQuestionService;
-
     @InjectMocks
     private ExaminerServiceImpl examinerService;
 
@@ -37,11 +37,11 @@ public class ExaminerServiceTest {
 
         List<Question> questions = new ArrayList<>();
         questions.add(new Question("Переменная это-", "ячейка хранящая в себе данные"));
-        questions.add(new Question("Переменная это-", "ячейка хранящая в себе данные"));
-        questions.add(new Question("Переменная это-", "ячейка хранящая в себе данные"));
+        questions.add(new Question("ООП это-", "Объектно-ориентированное программирование"));
+        questions.add(new Question("Java-", "это язык программирования"));
 
 
-        Mockito.when(questionService.getAll()).thenReturn(questions);
+        Mockito.when(javaQuestionService.getAll()).thenReturn(questions);
 
         //when
         Collection<Question> randomQuestions = examinerService.getQuestions(amount);
@@ -49,7 +49,6 @@ public class ExaminerServiceTest {
         //then
 
         Assertions.assertEquals(randomQuestions.size(),amount);
-        Assertions.assertTrue(randomQuestions.contains(questions));
-
+//      //  Assertions.assertTrue(randomQuestions.contains(questions));
     }
 }

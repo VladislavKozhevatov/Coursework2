@@ -16,14 +16,14 @@ public class JavaQuestionService implements QuestionService {
 
     @Override
     public Question add(String question, String answer) {
-        Question newQuestion = new Question (question,answer);
+        Question newQuestion = new Question(question, answer);
         if (question == null || answer == null) {
             throw new RuntimeException("Вы задали пустое поле вопрос/ответ");
         }
         if (JavaQuestions.contains(question)) {
             throw new RuntimeException("Такой вопрос уже содержится в списке");
         }
-       JavaQuestions.add(newQuestion);
+        JavaQuestions.add(newQuestion);
         return newQuestion;
     }
 
@@ -46,13 +46,13 @@ public class JavaQuestionService implements QuestionService {
 
     @Override
     public Collection<Question> getAll() {
-      return new ArrayList<>(JavaQuestions);
+        return new ArrayList<>(JavaQuestions);
     }
 
     @Override
     public Question getRandomQuestion() {
-     List<Question> listJavaQuestions = new ArrayList<>(JavaQuestions);
-      int numberOfQuestion = random.nextInt(getAll().size());
-     return listJavaQuestions.get(numberOfQuestion);
+        List<Question> listJavaQuestions = new ArrayList<>(JavaQuestions);
+        int numberOfQuestion = random.nextInt(getAll().size());
+        return listJavaQuestions.get(numberOfQuestion);
     }
 }
