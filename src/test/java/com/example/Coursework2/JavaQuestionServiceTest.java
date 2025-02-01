@@ -22,16 +22,12 @@ public class JavaQuestionServiceTest {
 
     @Test
     public void getAll() {
-
-
         Question question = new Question("Переменная это-", "ячейка хранящая в себе данные");
         Question question2 = new Question("Типы данных в Java-", "Примитивные и объекты");
         Question question3 = new Question("ООП это", "Объектно-ориентированное програмирование");
-
         questionService.add(question);
         questionService.add(question2);
         questionService.add(question3);
-
         Set<Question> expected = new HashSet<>() {{
             add(question);
             add(question2);
@@ -52,21 +48,17 @@ public class JavaQuestionServiceTest {
         Question addedQuestion = questionService.add(questionToAdd);
 
         Assertions.assertEquals(questionToAdd, addedQuestion);
-
     }
 
 
     @Test
     public void getRandomQuestion() {
-
         Question question = new Question("Переменная это-", "ячейка хранящая в себе данные");
         Question question2 = new Question("Типы данных в Java-", "Примитивные и объекты");
         Question question3 = new Question("ООП это", "Объектно-ориентированное програмирование");
-
         questionService.add(question);
         questionService.add(question2);
         questionService.add(question3);
-
         Set<Question> questions = new HashSet<>() {{
             add(question);
             add(question2);

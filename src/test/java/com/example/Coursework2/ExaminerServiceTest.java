@@ -29,9 +29,7 @@ public class ExaminerServiceTest {
     private ExaminerServiceImpl examinerService;
 
     @Test
-    void  shouldCorrectGetRandomQuestion(){
-
-        //given
+    void shouldCorrectGetRandomQuestion() {
 
         int amount = 3;
 
@@ -40,15 +38,10 @@ public class ExaminerServiceTest {
         questions.add(new Question("ООП это-", "Объектно-ориентированное программирование"));
         questions.add(new Question("Java-", "это язык программирования"));
 
-
         Mockito.when(javaQuestionService.getAll()).thenReturn(questions);
 
-        //when
         Collection<Question> randomQuestions = examinerService.getQuestions(amount);
 
-        //then
-
-        Assertions.assertEquals(randomQuestions.size(),amount);
-//      //  Assertions.assertTrue(randomQuestions.contains(questions));
+        Assertions.assertEquals(randomQuestions.size(), amount);
     }
 }
